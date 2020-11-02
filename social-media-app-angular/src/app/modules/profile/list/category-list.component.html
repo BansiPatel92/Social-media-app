@@ -1,0 +1,68 @@
+<!-- Categories section end -->
+<div class="Blog-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+               
+                <div class="row">
+                    <div class="social">
+                        <h3>Get profile for Social Media Account</h3>
+                        <button id="google_login" class="circle google" (click)="getGoogleProfile()">
+                            <i class="fa fa-google-plus fa-fw"></i>
+                        </button>
+                        <button id="facebook_login" class="circle facebook" (click)="getFacebookPosts()">
+                            <i class="fa fa-facebook fa-fw" aria-hidden="true"></i>
+                        </button>
+                        <form (submit)="getTweets(searchTweet)">
+                            <input [(ngModel)]="searchTweet" name="tweet" placeholder="Search something" autocomplete="off">
+                            <button id="facebook_login" class="circle twitter">
+                                <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                       
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;" *ngIf="googleProfileData">
+                    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                    <div class="card-body">
+                      <h5 class="card-title">Google Profile :</h5>
+                      <p class="card-text">Name : <strong *ngIf="googleProfileData">{{ googleProfileData.name }}</strong></p>
+                      <p class="card-text">Email : <strong *ngIf="googleProfileData">{{ googleProfileData.email }}</strong></p>
+                      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                  </div>
+                <!-- <div class="row col-md-12" *ngIf="googleProfileData">
+                    <h2 class="title col-md-4">Google Profile :</h2>
+                    <br>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <p>Name : <strong *ngIf="googleProfileData">{{ googleProfileData.name }}</strong></p> 
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <p>Email : <strong *ngIf="googleProfileData">{{ googleProfileData.email }}</strong></p>
+                        </div>
+                    </div>
+                </div> -->
+              
+                <div *ngIf="tweets" class="tweets">
+                    <div class="tweet" *ngFor="let tweet of tweets">
+                      <div class="left">
+                        <img class="picture" [src]= "tweet.user.profile_image_url"/>
+                      </div>
+                      <div class="right" >
+                        <div class="user">
+                          <div class="name"></div>
+                          <span class="username"> @</span>
+                          <span class="date"></span>
+                        </div> <br><br>
+                        <div class="text"> </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Categories section end -->
